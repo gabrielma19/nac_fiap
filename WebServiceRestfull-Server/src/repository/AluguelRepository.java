@@ -13,7 +13,7 @@ import entity.Aluguel;
 import exception.WebServiceException;
 
 public class AluguelRepository {
-	private static final String URL = "http://localhost:8080/rest/aluga/";
+	private static final String URL = "http://localhost:8080/aluga/";
 	
 	private Client cliente = Client.create();
 	
