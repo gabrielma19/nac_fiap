@@ -101,6 +101,7 @@ public class AluguelResource {
 			em.close();
 		}
 		//Retorna a URL e o HTTP status 201 (created)
+		
 		UriBuilder url = UriBuilder.fromPath(uriInfo.getPath());
 		url.path(String.valueOf(aluguel.getCdImovel()));
 		return Response.created(url.build()).build();

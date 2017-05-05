@@ -28,16 +28,29 @@ public class crud {
 				e.printStackTrace();
 			}
 		}else if (operacao.toUpperCase().equals("ATUALIZAR")){
-			Aluguel aluguel = new Aluguel();
+			
+			int codRemove = Integer.parseInt(JOptionPane.showInputDialog("Codigo valido para remoção!"));
+			int valor = Integer.parseInt(JOptionPane.showInputDialog("Valor do Imovel"));
+			String local = JOptionPane.showInputDialog("Digite a rua");
+			String cidade = JOptionPane.showInputDialog("Digite a cidade");
+			String imob = JOptionPane.showInputDialog("Nome da Imobiliaria");
+			
 			try {
+				Aluguel aluguel = new Aluguel(codRemove, valor, local, cidade, imob );
 				rep.atualizar(aluguel);
 				System.out.println("Atualizado com sucesso");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}else if(operacao.toUpperCase().equals("CADASTRAR")){
-			Aluguel aluguel = new Aluguel();
+			
+			int valor = Integer.parseInt(JOptionPane.showInputDialog("Valor do Imovel"));
+			String local = JOptionPane.showInputDialog("Digite a rua");
+			String cidade = JOptionPane.showInputDialog("Digite a cidade");
+			String imob = JOptionPane.showInputDialog("Nome da Imobiliaria");
+			
 			try {
+				Aluguel aluguel = new Aluguel(0, valor, local, cidade, imob );
 				rep.cadastrar(aluguel);
 				System.out.println("Cadastrado com sucesso");
 			} catch (Exception e) {
@@ -45,8 +58,11 @@ public class crud {
 				// TODO: handle exception
 			}
 		}else if(operacao.toUpperCase().equals("REMOVER") || operacao.toUpperCase().equals("DELETAR")){
+			
+			
 			String codRemove = new String();
 			codRemove = JOptionPane.showInputDialog("Codigo valido para remoção!");
+			
 			try {
 				rep.remover(Integer.parseInt(codRemove));
 				System.out.println("Removido com sucesso");
