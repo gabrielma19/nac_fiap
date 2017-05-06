@@ -15,7 +15,7 @@ public class AluguelDAOImpl extends GenericDAOImpl<Aluguel, Integer> implements 
 
 	@Override
 	public List<Aluguel> listar() {
-		return em.createQuery("from Compra",Aluguel.class).getResultList();
+		return em.createQuery("from Aluguel" ,Aluguel.class).getResultList();
 	}
 
 }

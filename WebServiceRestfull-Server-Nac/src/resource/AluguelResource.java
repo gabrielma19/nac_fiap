@@ -34,9 +34,9 @@ public class AluguelResource {
 	}
 	
 	@GET
-	@Path("/{cdImovel}")
+	@Path("/{codigo}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Aluguel buscar(@PathParam("cdImovel") int id){
+	public Aluguel buscar(@PathParam("codigo") int id){
 		EntityManager em = emf.createEntityManager();
 		AluguelDAO dao = new AluguelDAOImpl(em);
 		Aluguel aluguel = dao.buscar(id);
@@ -55,10 +55,10 @@ public class AluguelResource {
 	@PUT
 	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response atualizar(Aluguel aluguel, @PathParam("id") int cdImovel){
+	public Response atualizar(Aluguel aluguel, @PathParam("id") int codigo){
 		EntityManager em = emf.createEntityManager();
 		AluguelDAO dao = new AluguelDAOImpl(em);
-		aluguel.setCdImovel(cdImovel);
+		aluguel.setCodigo(codigo);
 		try {
 			dao.atualizar(aluguel);
 			dao.commit();
@@ -71,11 +71,11 @@ public class AluguelResource {
 	}
 	@DELETE
 	@Path("/{id}")
-	public void delete(@PathParam("id") int cdImovel){
+	public void delete(@PathParam("id") int codigo){
 		EntityManager em = emf.createEntityManager();
 		AluguelDAO dao = new AluguelDAOImpl(em);
 		try {
-			dao.excluir(cdImovel);
+			dao.excluir(codigo);
 			dao.commit();
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -88,9 +88,11 @@ public class AluguelResource {
 	@Consumes(MediaType.APPLICATION_JSON) //Recebe JSON
 	public Response cadastrar(Aluguel aluguel, 
 				@Context UriInfo uriInfo){
+		
 		//Cria o DAO
 		EntityManager em = emf.createEntityManager();
 		AluguelDAO dao = new AluguelDAOImpl(em);
+		
 		//Utiliza o DAO para cadastrar
 		try {
 			dao.cadastrar(aluguel);
@@ -100,10 +102,11 @@ public class AluguelResource {
 		}finally {
 			em.close();
 		}
+		
 		//Retorna a URL e o HTTP status 201 (created)
 		
 		UriBuilder url = UriBuilder.fromPath(uriInfo.getPath());
-		url.path(String.valueOf(aluguel.getCdImovel()));
+		url.path(String.valueOf(aluguel.getCodigo()));
 		return Response.created(url.build()).build();
 	}
 	

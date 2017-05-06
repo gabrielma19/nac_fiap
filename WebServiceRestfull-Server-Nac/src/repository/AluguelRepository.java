@@ -13,7 +13,7 @@ import entity.Aluguel;
 import exception.WebServiceException;
 
 public class AluguelRepository {
-	private static final String URL = "http://localhost:8080/WebServiceRestfull-Server-Nac/rest/aluga/";
+	private static final String URL = "http://localhost:8080/WebServiceRestfull-Server-Nac/rest/aluga";
 	
 	private Client cliente = Client.create();
 	
@@ -45,12 +45,11 @@ public class AluguelRepository {
 				MediaType.APPLICATION_JSON)
 				 .post(ClientResponse.class,aluguel);
 		 if (response.getStatus() != 201)
-			 throw new WebServiceException("HTTP Status: " +
-					 						response.getStatus());
+			 throw new WebServiceException("HTTP Status: " + response.getStatus());
 	}
 	public void atualizar(Aluguel aluguel) throws WebServiceException{
 		WebResource resource = 
-				cliente.resource(URL + aluguel.getCdImovel());
+				cliente.resource(URL + aluguel.getCodigo());
 		ClientResponse response = resource.type(
 				MediaType.APPLICATION_JSON)
 				.put(ClientResponse.class,aluguel);

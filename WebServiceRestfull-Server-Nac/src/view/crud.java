@@ -55,6 +55,7 @@ public class crud {
 				System.out.println("Cadastrado com sucesso");
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.out.println("Não cadastrou");
 				// TODO: handle exception
 			}
 		}else if(operacao.toUpperCase().equals("REMOVER") || operacao.toUpperCase().equals("DELETAR")){
@@ -62,6 +63,7 @@ public class crud {
 			
 			String codRemove = new String();
 			codRemove = JOptionPane.showInputDialog("Codigo valido para remoção!");
+			
 			
 			try {
 				rep.remover(Integer.parseInt(codRemove));

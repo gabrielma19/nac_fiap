@@ -6,18 +6,18 @@ import javax.persistence.Persistence;
 public class EntityManagerFactorySingleton {
 
 	//Atributo estático
-	private static EntityManagerFactory fabrica;
+	private static EntityManagerFactory emf;
 	
 	//Construtor privado
 	private EntityManagerFactorySingleton(){}
 	
 	//Método getInstance
 	public static EntityManagerFactory getInstance(){
-		if (fabrica == null){
-			fabrica = Persistence
+		if (emf == null){
+			emf = Persistence
 				.createEntityManagerFactory("CLIENTE_ORACLE");
 		}
-		return fabrica;
+		return emf;
 	}
 	
 }
