@@ -89,11 +89,9 @@ public class AluguelResource {
 	//Recebe JSON
 	public Response cadastrar(Aluguel aluguel, 
 				@Context UriInfo uriInfo){
-		
 		//Cria o DAO
 		EntityManager em = emf.createEntityManager();
 		AluguelDAO dao = new AluguelDAOImpl(em);
-		
 		//Utiliza o DAO para cadastrar
 		try {
 			dao.cadastrar(aluguel);
@@ -103,7 +101,6 @@ public class AluguelResource {
 		}finally {
 			em.close();
 		}
-		
 		//Retorna a URL e o HTTP status 201 (created)
 		
 		UriBuilder url = UriBuilder.fromPath(uriInfo.getPath());
