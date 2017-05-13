@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="_template.xhtml">
+	<ui:define name="conteudo">
+		<h1>Lista de Trocas</h1>
+		<h:dataTable styleClass="table" value="#{listAluguelBean.lista}" var="v">
+			<h:column>
+				<f:facet name="header">Código</f:facet>
+				#{v.codigo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Consultor 1</f:facet>
+				#{v.valor}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Consultor 2</f:facet>
+				#{v.local}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Distância</f:facet>
+				#{v.cidade}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Status</f:facet>
+				#{v.imobiliaria}
+			</h:column>
+		</h:dataTable>
+		<h:link outcome="cadastra-aluguel">Cadastrar Novo</h:link>
+	</ui:define>
+</ui:composition>
+</html>
