@@ -1,5 +1,7 @@
 # nac_fiap
-  WebService_Restfull
+  WebService_Restfull-Service
+  WebService_Restfull-client
+  WebService_Restfull-view
 
 # Package
 
