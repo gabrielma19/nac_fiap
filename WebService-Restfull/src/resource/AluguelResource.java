@@ -43,6 +43,7 @@ public class AluguelResource {
 		em.close();
 		return aluguel;
 	}
+	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Aluguel> listar(){

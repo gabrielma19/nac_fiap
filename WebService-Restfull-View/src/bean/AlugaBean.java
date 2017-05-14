@@ -28,6 +28,19 @@ public class AlugaBean {
 			e.printStackTrace();
 		}
 	}
+	public String deletar(){
+		try {
+		rep.remover(codigo);
+		System.out.println("Removido Com Sucesoo!");
+		FacesMessage msg = new FacesMessage("Removido Com Sucesoo!");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "deletar-aluguel";
+		}
+		return "lista-aluguel";
+	}
+	
 	public String cadastrar(){
 		try {
 			rep.cadastrar(aluga);

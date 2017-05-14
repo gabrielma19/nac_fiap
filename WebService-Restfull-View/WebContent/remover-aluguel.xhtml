@@ -8,18 +8,13 @@
 	<ui:define name="conteudo">
 		<h:form styleClass="form-inline">
 			<div class="form-group">
+				<h3>Remover Aluguel</h3>
 				<h:outputLabel value="Código" />
 				<h:inputText styleClass="form-control" value="#{alugaBean.codigo}" />
 			</div>
-			<h:commandButton value="Buscar" styleClass="btn btn-primary"
-				action="#{alugaBean.buscar()}" />
+			<h:commandButton value="Remover" styleClass="btn btn-primary"
+				action="#{alugaBean.deletar()}" />
 		</h:form>
-		<h:panelGrid columns="1">
-			<h:outputText value="#{alugaBean.aluga.valor}" />
-			<h:outputText value="#{alugaBean.aluga.local}" />
-			<h:outputText value="#{alugaBean.aluga.cidade}" />
-			<h:outputText value="#{alugaBean.aluga.imobiliaria}" />
-		</h:panelGrid>
 	</ui:define>
 </ui:composition>
 </html>
